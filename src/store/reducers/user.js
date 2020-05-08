@@ -5,6 +5,7 @@ const initialState = {
     data: [],
     add:false,
     delete:false,
+    update:false,
 }
 
 const gettabledata = (state, action) => {
@@ -34,6 +35,15 @@ const deletesuccess = (state, action) => {
     return state;
 }
 
+const updatesuccess = (state, action) => {
+    debugger
+    state = updateObject(state, {    
+        update: true 
+    })
+    debugger
+    return state;
+}
+
 const reducer = (state = initialState, action) => {
     var oldstate = state;
     state = initialState;
@@ -44,6 +54,8 @@ const reducer = (state = initialState, action) => {
             return addsuccess(state, action);
         case actionTypes.DELETE_SUCCESS:
             return deletesuccess(state, action);
+        case actionTypes.UPDATE_SUCCESS:
+            return updatesuccess(state, action);
         default:
             return initialState;
     }

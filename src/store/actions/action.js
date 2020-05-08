@@ -78,3 +78,33 @@ export const Delete_Lead = (id) =>{
         })
     }
 }
+
+export const updatesuc = () => {
+    debugger
+    return{
+        type: actionTypes.UPDATE_SUCCESS
+    }
+}
+
+export const Update_Lead = (id, communication) =>{
+    debugger
+    let url = "http://3.228.13.3:4000/api/mark_lead/" + id
+    let body = {
+        communication: communication
+    }
+    return dispatch => {
+        axios.
+        put(url, body)
+        .then(res=>{
+            debugger
+            dispatch(updatesuc())
+            dispatch(GetTable())
+            return true
+            debugger
+        })
+        .catch(err=>{
+            debugger
+            return true
+        })
+    }
+}

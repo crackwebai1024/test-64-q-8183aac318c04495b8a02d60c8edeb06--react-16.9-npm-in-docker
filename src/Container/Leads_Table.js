@@ -10,21 +10,43 @@ class Leads_Table extends React.Component{
         debugger
         let leadtable = []
         let data = this.props.data
-        for(let x in data){
-            debugger
-            leadtable.push(
-                <tr>
-                    <td>{data[x].first_name+data[x].last_name}</td>
-                    <td>{data[x].email}</td>
-                    <td>{data[x].mobile}</td>
-                    <td>{data[x].location_type}</td>
-                    <td>{data[x].location_string}</td>
-                    <td className="row">
-                        <Update_Lead_Modal_Btn id={data[x].id}/>
-                        <Delete_Lead_Modal_Btn id={data[x].id}/>                        
-                    </td>
-                </tr>
-            )
+        let up = this.props.update
+        if(up){
+            for(let x in data){
+                debugger
+                leadtable.push(
+                    <tr>
+                        <td>{data[x].first_name+data[x].last_name}</td>
+                        <td>{data[x].email}</td>
+                        <td>{data[x].mobile}</td>
+                        <td>{data[x].location_type}</td>
+                        <td>{data[x].location_string}</td>
+                        <td>{data[x].communication}</td>
+                        <td className="row">
+                            <Update_Lead_Modal_Btn id={data[x].id}/>
+                            <Delete_Lead_Modal_Btn id={data[x].id}/>                        
+                        </td>
+                    </tr>
+                )
+            }
+        }
+        else{
+            for(let x in data){
+                debugger
+                leadtable.push(
+                    <tr>
+                        <td>{data[x].first_name+data[x].last_name}</td>
+                        <td>{data[x].email}</td>
+                        <td>{data[x].mobile}</td>
+                        <td>{data[x].location_type}</td>
+                        <td>{data[x].location_string}</td>
+                        <td className="row">
+                            <Update_Lead_Modal_Btn id={data[x].id}/>
+                            <Delete_Lead_Modal_Btn id={data[x].id}/>                        
+                        </td>
+                    </tr>
+                )
+            }
         }
         return leadtable;
     }
@@ -43,6 +65,7 @@ class Leads_Table extends React.Component{
                         <th>Mobile Num</th>
                         <th>Location Type</th>
                         <th>Location String</th>
+                        {this.props.update? <th>Communication</th>:""}
                         <th>Action</th>
                     </thead>
                     <tbody>
@@ -58,7 +81,8 @@ class Leads_Table extends React.Component{
 const mapStateToProps = state => {
     debugger
     return {
-        data: state.user.data
+        data: state.user.data,
+        update:state.user.update
     };
 }
 
