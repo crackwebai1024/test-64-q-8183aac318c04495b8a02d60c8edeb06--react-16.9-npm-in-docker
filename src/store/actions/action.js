@@ -9,6 +9,13 @@ export const gettableresult = (data) => {
     }
 }
 
+export const addsuc = () => {
+    debugger
+    return{
+        type: actionTypes.ADD_SUCCESS
+    }
+}
+
 export const GetTable = () =>{
     debugger
     let url = "http://18.209.209.196:4059/api/leads/?location_string=India"
@@ -30,13 +37,17 @@ export const Add_Lead = (body) =>{
     let url = "http://18.209.209.196:4059/api/leads/"
     return dispatch => {
         axios.
-        post(url, body)
+        post(url, JSON.stringify(body))
         .then(res=>{
-            dispatch(gettableresult(res.data))
+            debugger
+            dispatch(addsuc())
+            dispatch(GetTable())
+            return true
             debugger
         })
         .catch(err=>{
             debugger
+            return true
         })
     }
 }

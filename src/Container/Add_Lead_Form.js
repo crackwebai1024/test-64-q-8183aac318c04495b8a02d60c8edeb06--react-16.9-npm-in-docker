@@ -10,7 +10,8 @@ class add_lead_form extends React.Component{
         email: "",
         mobile: "",
         location_string: "",
-        location_type: "country",
+        location_type: "Country",
+        detoggle: "add_lead_btn disabled"
     }
 
     handleChange = (e) => {
@@ -31,16 +32,28 @@ class add_lead_form extends React.Component{
             location_string: this.state.location_string,
         }
         debugger
-        for(let x in body){
-            debugger
-            if(body[x].length == 0){
-                return;
-            }
-        }
-        debugger
         this.props.addlead(body)
     }
     render(){
+        let body = {
+            first_name: this.state.first_name,
+            last_name: this.state.last_name,
+            mobile: this.state.mobile,
+            email: this.state.email,
+            location_type: this.state.location_type,
+            location_string: this.state.location_string,
+        }
+        debugger
+        let detoggle = "add_lead_btn"
+        for(let x in body){
+            if(body[x].length == 0){
+                    detoggle = "add_lead_btn disabled"
+                break;
+            }
+        }
+        if(this.props.add && this.props.modal == true){
+            this.props.toggle()
+        }
         return(
         <MDBContainer>
             <MDBModal isOpen={this.props.modal} toggle={this.props.toggle}>
@@ -80,7 +93,8 @@ class add_lead_form extends React.Component{
                             Location Type
                             </label>
                             <select name = "location_type" className = "countryselect custom-select" onChange = { this.handleChange } value={this.state.location_type}>
-                                <option>country</option>
+                                <option>Country</option>
+                                <option>City</option>
                             </select>
                             
                         </div>
@@ -94,7 +108,7 @@ class add_lead_form extends React.Component{
                 </MDBModalBody>
                 <MDBModalFooter>
                     <MDBBtn color="secondary" onClick={this.props.toggle}>Close</MDBBtn>
-                    <MDBBtn color="primary" onClick={this.onSubmit}>Save</MDBBtn>
+                    <MDBBtn color="primary" onClick={this.onSubmit} className={detoggle}>Save</MDBBtn>
                 </MDBModalFooter>
             </MDBModal>
         </MDBContainer>
@@ -104,7 +118,7 @@ class add_lead_form extends React.Component{
 
 const mapStateToProps = state => {
     return{
-        
+        add: state.user.add
     }
 }
 

@@ -12,7 +12,7 @@ class add_lead_modal_btn extends React.Component{
     render(){
         return(
             <div  style={{ float: "right" }}>    
-                <MDBBtn color="elegant">
+                <MDBBtn color="elegant" className="delete_lead_modal_btn">
                     Delete
                 </MDBBtn>
             </div>              

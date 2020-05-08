@@ -5,7 +5,7 @@ import { MDBContainer, MDBBtn } from 'mdbreact';
 class update_lead_modal_btn extends React.Component{
     render(){
         return(
-                <MDBBtn color="elegant" style={{ float:"right" }}>
+                <MDBBtn color="elegant" style={{ float:"right" }} className="update_lead_modal_btn">
                     Mark Update
                 </MDBBtn>            
         )

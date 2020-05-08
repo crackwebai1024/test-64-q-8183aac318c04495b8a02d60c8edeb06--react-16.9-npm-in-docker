@@ -15,6 +15,7 @@ class add_lead_modal_btn extends React.Component{
     }
 
     toggle = () => {
+        debugger
         this.setState({
             modal: !this.state.modal,
         })
@@ -23,7 +24,7 @@ class add_lead_modal_btn extends React.Component{
     render(){
         return(
             <div className="col-md-2">    
-                <MDBBtn color="elegant" onClick={this.toggle}>
+                <MDBBtn color="elegant" onClick={this.toggle} className="add_lead_modal_btn">
                     Add Lead
                 </MDBBtn>
                 <Add_Lead_Form modal={this.state.modal} toggle={this.toggle}/>

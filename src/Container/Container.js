@@ -10,10 +10,6 @@ class Container extends React.Component{
             <div>
                 <Add_Lead_Modal_Btn />
                 <Leads_Table />
-                {/* <div className="mr-auto col-md-9">
-                    <Update_Lead_Modal_Btn />
-                    <Delete_Lead_Modal_Btn />
-                </div> */}
             </div>
         )
     }

@@ -21,8 +21,7 @@ class Leads_Table extends React.Component{
                     <td>{data[x].location_string}</td>
                     <td className="row">
                         <Update_Lead_Modal_Btn />
-                        <Delete_Lead_Modal_Btn />
-                        
+                        <Delete_Lead_Modal_Btn />                        
                     </td>
                 </tr>
             )
@@ -36,7 +35,7 @@ class Leads_Table extends React.Component{
 
     render(){
         return(
-            <div>    
+            <div className="leads_table">    
                 <table className="table table-striped table-responsive-md btn-table">
                     <thead style={{ backgroundColor: "black" }}>
                         <th>Name</th>
