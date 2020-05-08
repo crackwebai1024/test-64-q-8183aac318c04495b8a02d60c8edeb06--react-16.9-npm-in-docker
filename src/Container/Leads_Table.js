@@ -20,8 +20,8 @@ class Leads_Table extends React.Component{
                     <td>{data[x].location_type}</td>
                     <td>{data[x].location_string}</td>
                     <td className="row">
-                        <Update_Lead_Modal_Btn />
-                        <Delete_Lead_Modal_Btn />                        
+                        <Update_Lead_Modal_Btn id={data[x].id}/>
+                        <Delete_Lead_Modal_Btn id={data[x].id}/>                        
                     </td>
                 </tr>
             )

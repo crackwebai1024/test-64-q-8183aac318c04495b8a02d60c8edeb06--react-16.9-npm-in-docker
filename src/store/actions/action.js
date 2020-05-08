@@ -37,10 +37,37 @@ export const Add_Lead = (body) =>{
     let url = "http://3.228.13.3:4000/api/leads/"
     return dispatch => {
         axios.
-        post(url, JSON.stringify(body))
+        post(url, body)
         .then(res=>{
             debugger
             dispatch(addsuc())
+            dispatch(GetTable())
+            return true
+            debugger
+        })
+        .catch(err=>{
+            debugger
+            return true
+        })
+    }
+}
+
+export const deletesuc = () => {
+    debugger
+    return{
+        type: actionTypes.DELETE_SUCCESS
+    }
+}
+
+export const Delete_Lead = (id) =>{
+    debugger
+    let url = "http://3.228.13.3:4000/api/leads/" + id
+    return dispatch => {
+        axios.
+        delete(url)
+        .then(res=>{
+            debugger
+            dispatch(deletesuc())
             dispatch(GetTable())
             return true
             debugger

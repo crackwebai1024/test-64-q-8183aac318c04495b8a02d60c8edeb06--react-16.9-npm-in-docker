@@ -4,6 +4,7 @@ import { updateObject } from "../utility";
 const initialState = {
     data: [],
     add:false,
+    delete:false,
 }
 
 const gettabledata = (state, action) => {
@@ -24,6 +25,15 @@ const addsuccess = (state, action) => {
     return state;
 }
 
+const deletesuccess = (state, action) => {
+    debugger
+    state = updateObject(state, {    
+        delete: true 
+    })
+    debugger
+    return state;
+}
+
 const reducer = (state = initialState, action) => {
     var oldstate = state;
     state = initialState;
@@ -32,6 +42,8 @@ const reducer = (state = initialState, action) => {
             return gettabledata(state, action);
         case actionTypes.ADD_SUCCESS:
             return addsuccess(state, action);
+        case actionTypes.DELETE_SUCCESS:
+            return deletesuccess(state, action);
         default:
             return initialState;
     }

@@ -56,7 +56,9 @@ class add_lead_form extends React.Component{
         }
         return(
         <MDBContainer>
+            
             <MDBModal isOpen={this.props.modal} toggle={this.props.toggle}>
+            <form className="add_lead_form">
                 <MDBModalHeader toggle={this.toggle} style={{ backgroudColor: "black" }}>Add Lead</MDBModalHeader>
                 <MDBModalBody>
                     <div className="row">
@@ -110,7 +112,9 @@ class add_lead_form extends React.Component{
                     <MDBBtn color="secondary" onClick={this.props.toggle}>Close</MDBBtn>
                     <MDBBtn color="primary" onClick={this.onSubmit} className={detoggle}>Save</MDBBtn>
                 </MDBModalFooter>
+                </form>
             </MDBModal>
+            
         </MDBContainer>
         )
     }
