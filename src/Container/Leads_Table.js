@@ -35,8 +35,8 @@ class Leads_Table extends React.Component{
 
     render(){
         return(
-            <div className="leads_table">    
-                <table className="table table-striped table-responsive-md btn-table">
+            <div>    
+                <table className="table table-striped table-responsive-md btn-table leads_table">
                     <thead style={{ backgroundColor: "black" }}>
                         <th>Name</th>
                         <th>Email</th>

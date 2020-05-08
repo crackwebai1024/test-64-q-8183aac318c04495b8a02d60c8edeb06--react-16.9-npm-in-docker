@@ -18,7 +18,7 @@ export const addsuc = () => {
 
 export const GetTable = () =>{
     debugger
-    let url = "http://18.209.209.196:4059/api/leads/?location_string=India"
+    let url = "http://3.228.13.3:4000/api/leads/?location_string=India"
     return dispatch => {
         axios.
         get(url)
@@ -34,7 +34,7 @@ export const GetTable = () =>{
 
 export const Add_Lead = (body) =>{
     debugger
-    let url = "http://18.209.209.196:4059/api/leads/"
+    let url = "http://3.228.13.3:4000/api/leads/"
     return dispatch => {
         axios.
         post(url, JSON.stringify(body))
