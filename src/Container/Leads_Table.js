@@ -19,6 +19,7 @@ class Leads_Table extends React.Component{
                     <td>{data[x].mobile}</td>
                     <td>{data[x].location_type}</td>
                     <td>{data[x].location_string}</td>
+                    <td>{data[x].communication}</td>
                     <td className="row">
                         <Update_Lead_Modal_Btn id={data[x].id}/>
                         <Delete_Lead_Modal_Btn id={data[x].id}/>                        
@@ -43,6 +44,7 @@ class Leads_Table extends React.Component{
                         <th>Mobile Num</th>
                         <th>Location Type</th>
                         <th>Location String</th>
+                        <th>Communication</th>
                         <th>Action</th>
                     </thead>
                     <tbody>

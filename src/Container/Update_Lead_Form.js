@@ -32,7 +32,8 @@ class Update_lead_form extends React.Component{
             <MDBModal isOpen={this.props.modal} toggle={this.props.toggle}>
                 <form className="update_lead_form">
                 <MDBModalHeader toggle={this.props.toggle} style={{ backgroudColor: "black" }}>Mark communication</MDBModalHeader>
-                <textarea name="communication" className="form-control" onChange={this.handleChange}></textarea>
+                <h1 className="communication">Communication</h1>
+                <textarea name="communication" className="form-control communication" onChange={this.handleChange} value={this.state.communication}></textarea>
                 <MDBModalFooter>
                     
                     <MDBBtn color="primary" onClick={this.props.toggle} >Close</MDBBtn>
