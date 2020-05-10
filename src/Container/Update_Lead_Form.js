@@ -6,12 +6,14 @@ import { Update_Lead } from '../store/actions/action'
 class Update_lead_form extends React.Component{
     
     state = {
-        communication: ""
+        communication: "",
+        firstclick: true,
     }
 
     handleChange = (e) => {
         this.setState({
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
+            firstclick: false,        
         })
     }
 
@@ -26,14 +28,22 @@ class Update_lead_form extends React.Component{
         if(this.props.update && this.props.modal == true){
             this.props.toggle()
         }
-
+        let content = ""
+        if(this.state.firstclick == true){
+            debugger
+            content = this.props.content
+        }
+        else{
+            content = this.state.communication
+        }
+        debugger
         return(
         <MDBContainer>
             <MDBModal isOpen={this.props.modal} toggle={this.props.toggle}>
                 <form className="update_lead_form">
                 <MDBModalHeader toggle={this.props.toggle} style={{ backgroudColor: "black" }}>Mark communication</MDBModalHeader>
                 <h1 className="communication">Communication</h1>
-                <textarea name="communication" className="form-control communication" onChange={this.handleChange} value={this.state.communication}></textarea>
+                <textarea name="communication" className="form-control communication" onChange={this.handleChange} value={content}></textarea>
                 <MDBModalFooter>
                     
                     <MDBBtn color="primary" onClick={this.props.toggle} >Close</MDBBtn>

@@ -21,7 +21,7 @@ class update_lead_modal_btn extends React.Component{
                 <MDBBtn color="elegant" style={{ float:"right" }} className="update_lead_modal_btn" onClick={this.toggle}>
                     Mark Update
                 </MDBBtn>   
-                <Update_Lead_Form modal={this.state.modal} toggle={this.toggle} id={this.props.id}/>      
+                <Update_Lead_Form modal={this.state.modal} toggle={this.toggle} id={this.props.id} content={this.props.content}/>      
             </div>  
         )
     }

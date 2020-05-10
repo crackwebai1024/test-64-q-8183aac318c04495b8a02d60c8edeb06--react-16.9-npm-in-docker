@@ -18,7 +18,7 @@ export const addsuc = () => {
 
 export const GetTable = () =>{
     debugger
-    let url = "http://3.228.13.3:4059/api/leads/?location_string=India"
+    let url = "http://3.228.13.3:4000/api/leads/?location_string=India"
     return dispatch => {
         axios.
         get(url)
@@ -34,7 +34,7 @@ export const GetTable = () =>{
 
 export const Add_Lead = (body) =>{
     debugger
-    let url = "http://3.228.13.3:4059/api/leads/"
+    let url = "http://3.228.13.3:4000/api/leads/"
     return dispatch => {
         axios.
         post(url, body)
@@ -61,7 +61,7 @@ export const deletesuc = () => {
 
 export const Delete_Lead = (id) =>{
     debugger
-    let url = "http://3.228.13.3:4059/api/leads/" + id
+    let url = "http://3.228.13.3:4000/api/leads/" + id
     return dispatch => {
         axios.
         delete(url)
@@ -88,7 +88,7 @@ export const updatesuc = () => {
 
 export const Update_Lead = (id, communication) =>{
     debugger
-    let url = "http://3.228.13.3:4059/api/mark_lead/" + id
+    let url = "http://3.228.13.3:4000/api/mark_lead/" + id
     let body = {
         communication: communication
     }

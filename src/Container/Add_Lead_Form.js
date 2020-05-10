@@ -44,10 +44,10 @@ class add_lead_form extends React.Component{
             location_string: this.state.location_string,
         }
         debugger
-        let detoggle = "add_lead_btn"
+        let detoggle = false
         for(let x in body){
             if(body[x].length == 0){
-                    detoggle = "add_lead_btn disabled"
+                    detoggle = true
                 break;
             }
         }
@@ -97,6 +97,7 @@ class add_lead_form extends React.Component{
                             <select name = "location_type" className = "countryselect custom-select" onChange = { this.handleChange } value={this.state.location_type}>
                                 <option>Country</option>
                                 <option>City</option>
+                                <option>State</option>
                             </select>
                             
                         </div>
@@ -110,7 +111,9 @@ class add_lead_form extends React.Component{
                 </MDBModalBody>
                 <MDBModalFooter>
                     <MDBBtn color="secondary" onClick={this.props.toggle}>Close</MDBBtn>
-                    <MDBBtn color="primary" onClick={this.onSubmit} className={detoggle}>Save</MDBBtn>
+                    {detoggle?
+                    <MDBBtn color="primary" onClick={this.onSubmit} className="add_lead_btn" disabled>Save</MDBBtn>:
+                    <MDBBtn color="primary" onClick={this.onSubmit} className="add_lead_btn">Save</MDBBtn>}
                 </MDBModalFooter>
                 </form>
             </MDBModal>

@@ -14,14 +14,13 @@ class Leads_Table extends React.Component{
             debugger
             leadtable.push(
                 <tr>
-                    <td>{data[x].first_name+data[x].last_name}</td>
+                    <td>{data[x].first_name+" "+data[x].last_name}</td>
                     <td>{data[x].email}</td>
                     <td>{data[x].mobile}</td>
                     <td>{data[x].location_type}</td>
                     <td>{data[x].location_string}</td>
-                    <td>{data[x].communication}</td>
                     <td className="row">
-                        <Update_Lead_Modal_Btn id={data[x].id}/>
+                        <Update_Lead_Modal_Btn id={data[x].id} content={data[x].communication}/>
                         <Delete_Lead_Modal_Btn id={data[x].id}/>                        
                     </td>
                 </tr>
@@ -44,7 +43,6 @@ class Leads_Table extends React.Component{
                         <th>Mobile Num</th>
                         <th>Location Type</th>
                         <th>Location String</th>
-                        <th>Communication</th>
                         <th>Action</th>
                     </thead>
                     <tbody>
